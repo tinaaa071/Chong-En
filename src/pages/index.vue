@@ -44,8 +44,10 @@
           </div>
         </div>
       </template>
+      
       <template #info>
-        <Table />
+        <Table :columns="columns" :data="data">
+        </Table>
       </template>
     </Card>
   </Layout>
@@ -104,14 +106,39 @@ export default {
 
     // 欄位
     const columns = ref([
-            { key: 'title', label: '標題' },
-            { key: 'description', label: '簡介' },
-            { key: 'visits', label: '瀏覽次數' },
-            { key: 'created_at', label: '建立日期' },
-            { key: 'tags', label: '標籤' }
-        ])
+        { key: 'title', label: '' },
+        { key: '1', label: '清日' },
+        { key: '2', label: '清清' },
+        { key: '3', label: '清原' },
+        { key: '4', label: '清玉' },
+        { key: '5', label: '清松' },
+        { key: '6', label: '清森' },
+        { key: '7', label: '清星' },
+        { key: '8', label: '清月' },
+        { key: '9', label: '清處' },
+        { key: '10', label: '清水' },
+        { key: '11', label: '清流' },
+
+    ])
+    // 資料
+    const data = ref([
+        { 
+          id: 1,
+          title: '72 小時評估單',
+        },
+        { 
+          id: 2,
+          title: '入住適應評估單',
+        },
+    ])
+      
     return {
-      cards, drawer, showModal, isSelectVisible
+      cards, 
+      drawer, 
+      showModal, 
+      isSelectVisible, 
+      columns,
+      data
     }
   }
   
