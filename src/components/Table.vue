@@ -1,5 +1,5 @@
 <template>
-    <div class="overflow-x-auto rounded-2xl">
+    <div class="flex-col overflow-x-auto rounded-2xl lg:flex lg:flex-row">
       <table class="w-full">
           <thead class=" bg-emerald-50">
               <tr class="border-b border-gray-200">
@@ -8,6 +8,7 @@
                   v-for="column in columns" 
                   :key="column.key"
                   class="px-5 py-3 text-sm font-medium tracking-wider text-center text-gray-900 whitespace-nowrap"
+                  
                   >
                       {{ column.label }}
                   </th>
@@ -20,15 +21,24 @@
                 <td class="p-5 text-center bg-emerald-50">
                     {{ record.title }}
                 </td>
-                <td class="p-5">
+                <td 
+                class="p-5"
+                >
                     <button 
                     class="text-center"
-                    @click="showModal = true">
-                        <Status :done="false" />
+                    >
+                        <Status 
+                        :done="false"
+                        @click="showModal = true"
+                        />
+                        <!-- <Status 
+                        :done="true"
+                        class="cursor-default" 
+                        /> -->
                     </button>
                 </td>
                 
-              </tr>
+            </tr>
           </tbody>
       </table>
 
@@ -36,9 +46,10 @@
         <Modal 
             v-model="showModal"
             title="當月活動數量"
+            class="z-20"
             >
             <template #content>
-                <InfoCard />
+                <PieChart />
             </template>
         </Modal>
     </div>

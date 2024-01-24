@@ -32,9 +32,10 @@
       <Modal 
         v-model="showModal"
         title="當月活動數量"
+        class="z-20"
         >
         <template #content>
-          <canvas ref="pieChartEl"></canvas>
+          <PieChart />
         </template>
       </Modal>
     </div>
